@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1625582265656.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "576943839",
+    "id" : "CE947DAF",
+    "lastKnownWriteTime" : 1625583143,
+    "last_content_update" : 1625583143316,
+    "path" : "E:/doctor/Rpackage_develop_for_clinical/TCGAcm/R/drugParse.R",
+    "project_path" : "R/drugParse.R",
+    "properties" : {
+        "cursorPosition" : "91,17",
+        "scrollLine" : "75"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

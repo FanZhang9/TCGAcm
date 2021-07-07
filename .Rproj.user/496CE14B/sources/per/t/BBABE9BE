@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1625582738983.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "992059059",
+    "id" : "BBABE9BE",
+    "lastKnownWriteTime" : 1625468420,
+    "last_content_update" : 1625468420,
+    "path" : "E:/doctor/Rpackage_develop_for_clinical/TCGAcm/R/vitalParse.R",
+    "project_path" : "R/vitalParse.R",
+    "properties" : {
+        "cursorPosition" : "28,137",
+        "scrollLine" : "7"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

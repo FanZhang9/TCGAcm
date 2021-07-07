@@ -1,0 +1,15 @@
+Package: TCGAcm
+Type: Package
+Title: TCGA clinical data mining
+Version: 0.1.0
+Author: Fan Zhang
+Maintainer: Fan Zhang <zhangfan04@foxmail.com>
+Description: This package provide several praticle tools for mining the TCGA dowloaded clinical data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+     XML,
+     tibble,
+     stringr
+RoxygenNote: 7.1.1

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1625582764597.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3253385816",
+    "id" : "13D6E8DC",
+    "lastKnownWriteTime" : 1625583071,
+    "last_content_update" : 1625583071834,
+    "path" : "E:/doctor/Rpackage_develop_for_clinical/TCGAcm/R/join_list.R",
+    "project_path" : "R/join_list.R",
+    "properties" : {
+        "cursorPosition" : "7,2",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

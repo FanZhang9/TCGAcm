@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1625582381960.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2842340866",
+    "id" : "DED5ED15",
+    "lastKnownWriteTime" : 1625582728,
+    "last_content_update" : 1625582728530,
+    "path" : "E:/doctor/Rpackage_develop_for_clinical/TCGAcm/R/tumor_eventParse.R",
+    "project_path" : "R/tumor_eventParse.R",
+    "properties" : {
+        "cursorPosition" : "126,26",
+        "scrollLine" : "88"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

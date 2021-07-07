@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1625582303003.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "44579788",
+    "id" : "268B03C9",
+    "lastKnownWriteTime" : 1625582947,
+    "last_content_update" : 1625582947545,
+    "path" : "E:/doctor/Rpackage_develop_for_clinical/TCGAcm/R/stageParse.R",
+    "project_path" : "R/stageParse.R",
+    "properties" : {
+        "cursorPosition" : "5,2",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
