@@ -4,10 +4,12 @@
 \alias{stageParse}
 \title{Parse TCGA clinical data patients tumor stage information}
 \usage{
-stageParse(filenames, simplify = TRUE)
+stageParse(filenames, dir = ".", simplify = TRUE)
 }
 \arguments{
 \item{filenames}{A vector contain the names of TCGA clinical XML files directorys and names (tcga_files_path/xml_file_names), which can easily retrieve by `list.files(path = ".", pattern = "*.xml",recursive = TRUE)`. The working directorys is the key, please check the names (which contain tcga_files_path/XML_file_names) is correct.}
+
+\item{dir}{file directory contained the XML files, default is current directory "."}
 
 \item{simplify}{When simplify = FALSE, it will return the full detail of patient basic information (bcr_patient_barcode, etc.), and tumor stage.
                 When simplify = TRUE, it will return

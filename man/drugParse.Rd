@@ -4,10 +4,12 @@
 \alias{drugParse}
 \title{Parse TCGA clinical data drug information}
 \usage{
-drugParse(filenames, simplify = TRUE)
+drugParse(filenames, dir = ".", simplify = TRUE)
 }
 \arguments{
 \item{filenames}{A vector contain the names of TCGA clinical XML files directorys and names (tcga_files_path/xml_file_names), which can easily retrieve by `list.files(path = ".", pattern = "*.xml",recursive = TRUE)`. The working directorys is the key, please check the names (which contain tcga_files_path/XML_file_names) is correct.}
+
+\item{dir}{file directory contained the XML files, default is current directory "."}
 
 \item{simplify}{logical, when simplify = TRUE return a tibble with patient ID information (bcr_patient_barcode, bcr_patient_uuid, tumor_tissue_site, gender), and a column contain
 drug names. (it's a list column, thank to the tibble freature, and it contain the patient drug names has undergone).

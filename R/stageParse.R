@@ -1,6 +1,7 @@
 #' Parse TCGA clinical data patients tumor stage information
 #'
 #' @param filenames A vector contain the names of TCGA clinical XML files directorys and names (tcga_files_path/xml_file_names), which can easily retrieve by `list.files(path = ".", pattern = "*.xml",recursive = TRUE)`. The working directorys is the key, please check the names (which contain tcga_files_path/XML_file_names) is correct.
+#' @param dir file directory contained the XML files, default is current directory "."
 #' @param simplify When simplify = FALSE, it will return the full detail of patient basic information (bcr_patient_barcode, etc.), and tumor stage.
 #'                 When simplify = TRUE, it will return
 #'
@@ -11,7 +12,7 @@
 #' When simplify = TRUE, it will only return the key tumor stage information (bcr_patient_barcode, bcr_patient_uuid, age_at_initial_pathologic_diagnosis, tumor_tissue_site, gender, race, stage_system_version, stage_pathologic_stage, stage_tnm_pathologic_T, stage_tnm_pathologic_M, stage_tnm_pathologic_N)
 #'
 #'
-#' @author Fan Zhang
+#' @author Fan Zhang <fanzhang95@outlook.com>
 #'
 #'
 #'
@@ -21,14 +22,18 @@
 #'
 #'
 #'
-stageParse <- function(filenames, simplify = TRUE){
+stageParse <- function(filenames, dir=".",simplify = TRUE){
 
-  if(!all(grepl(".xml",filenames) == TRUE)){
-    stop("filenames must be a vector of TCGA XML file names")}
+  if(!all(grepl(".xml",filenames))){
+    stop("list must be a vector of TCGA XML file names")}
+
+  if(!file.exists(file.path(dir,filenames[1]))){
+    stop(paste(file.path(dir,filenames[1]),"cann't not find the xml files"))
+  }
 
   stage_infor <- lapply(filenames,function(filename){
 
-        file <- XML::xmlParse(filename,encoding="UTF-8")
+        file <- XML::xmlParse(file.path(dir,filenames),encoding="UTF-8")
 
         file <- XML::xmlToList(file)
 

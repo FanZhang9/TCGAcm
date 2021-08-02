@@ -65,11 +65,33 @@ vitalParse <- function(filenames, dir="."){
                                                   days_to_death = xml2::xml_text(xml2::xml_find_all(xfile,"//clin_shared:days_to_death")),
                                                   days_to_last_followup = xml2::xml_text(xml2::xml_find_all(xfile,"//clin_shared:days_to_last_followup")))
 
-                          vital <- dplyr::arrange(vital,desc(days_to_last_followup),decreasing = TRUE)
+                          vital <- dplyr::arrange(vital,dplyr::desc(days_to_last_followup),decreasing = TRUE)
                           vital <- vital[1,]
 
-                          tumor_event <- tibble::tibble(new_tumor_event_after_initial_treatment = xml2::xml_text(xml2::xml_find_all(xfile,"//cesc:follow_ups/*/nte:new_tumor_event_after_initial_treatment | //cesc_nte:new_tumor_events/nte:new_tumor_event_after_initial_treatment")),
-                                                        days_to_new_tumor_event_after_initial_treatment = xml2::xml_text(xml2::xml_find_all(xfile,"//cesc:follow_ups/*/nte:days_to_new_tumor_event_after_initial_treatment | //cesc_nte:new_tumor_events/nte:new_tumor_event_after_initial_treatment")),
+                          new_tumor_event_after_initial_treatment <- xml2::xml_text(xml2::xml_find_all(xfile,"//cesc:follow_ups/*/nte:new_tumor_event_after_initial_treatment | //cesc_nte:new_tumor_events/nte:new_tumor_event_after_initial_treatment"))
+                          if(length(new_tumor_event_after_initial_treatment)==0)
+                            new_tumor_event_after_initial_treatment <- xml2::xml_text(xml2::xml_find_all(xfile,"//nte:new_tumor_event_after_initial_treatment"))
+
+                          days_to_new_tumor_event_after_initial_treatment <- xml2::xml_text(xml2::xml_find_all(xfile,"//cesc:follow_ups/*/nte:days_to_new_tumor_event_after_initial_treatment | //cesc_nte:new_tumor_events/nte:new_tumor_event_after_initial_treatment"))
+                          if(length(days_to_new_tumor_event_after_initial_treatment)==0)
+                            days_to_new_tumor_event_after_initial_treatment <- xml2::xml_text(xml2::xml_find_all(xfile,"//nte:days_to_new_tumor_event_after_initial_treatment"))
+
+                          if(length(days_to_new_tumor_event_after_initial_treatment)==0)
+                            days_to_new_tumor_event_after_initial_treatment <- rep("",length(new_tumor_event_after_initial_treatment))
+
+                          if(length(days_to_new_tumor_event_after_initial_treatment)!=length(new_tumor_event_after_initial_treatment)){
+                            new_tumor_event_after_initial_treatment_backup <- new_tumor_event_after_initial_treatment
+
+                            new_tumor_event_after_initial_treatment[which(new_tumor_event_after_initial_treatment=="YES")] <- days_to_new_tumor_event_after_initial_treatment
+
+                            days_to_new_tumor_event_after_initial_treatment <- gsub("NO","",new_tumor_event_after_initial_treatment)
+                            new_tumor_event_after_initial_treatment <- new_tumor_event_after_initial_treatment_backup
+                          }
+
+
+
+                          tumor_event <- tibble::tibble(new_tumor_event_after_initial_treatment = new_tumor_event_after_initial_treatment,
+                                                        days_to_new_tumor_event_after_initial_treatment = days_to_new_tumor_event_after_initial_treatment,
                                                         days_to_death = xml2::xml_text(xml2::xml_find_all(xfile,"//clin_shared:days_to_death")),
                                                         days_to_last_followup = xml2::xml_text(xml2::xml_find_all(xfile,"//clin_shared:days_to_last_followup"))
                           )

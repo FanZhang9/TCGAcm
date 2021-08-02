@@ -11,24 +11,28 @@
 #'
 #'
 #' @param filenames A vector contain the names of TCGA clinical XML files directorys and names (tcga_files_path/xml_file_names), which can easily retrieve by `list.files(path = ".", pattern = "*.xml",recursive = TRUE)`. The working directorys is the key, please check the names (which contain tcga_files_path/XML_file_names) is correct.
-#'
+#' @param dir file directory contained the XML files, default is current directory "."
 #' @param simplify logical, when simplify = TRUE return a tibble with patient ID information (bcr_patient_barcode, bcr_patient_uuid, tumor_tissue_site, gender), and a column contain
 #'                 drug names. (it's a list column, thank to the tibble freature, and it contain the patient drug names has undergone).
 #'                 When it's simplify = FALSE, it will return return a tibble with patient ID information (bcr_patient_barcode, bcr_patient_uuid, tumor_tissue_site, gender), and a column contain
 #'                 full drug record.
 #'
-#' @author Fan Zhang
+#' @author Fan Zhang <fanzhang95@outlook.com>
 #'
 #' @return When simplify = TRUE, return a tibble with patients id and drug names list column. When simplify = FALSE, return a tibble contain full drugs record information.
-drugParse <- function(filenames,simplify = TRUE){
+drugParse <- function(filenames, dir=".", simplify = TRUE){
 
-  if(!all(grepl(".xml",filenames) == TRUE)){
-    stop("filenames must be a vector of TCGA XML file names")}
+  if(!all(grepl(".xml",filenames))){
+    stop("list must be a vector of TCGA XML file names")}
+
+  if(!file.exists(file.path(dir,filenames[1]))){
+    stop(paste(file.path(dir,filenames[1]),"cann't not find the xml files"))
+  }
 
   #parse XML_filenames extract drug information
-  drug_list <- lapply(filenames,function(x){
+  drug_list <- lapply(filenames,function(filenames){
 
-    file <- XML::xmlParse(x,encoding="UTF-8")
+    file <- XML::xmlParse(file.path(dir,filenames),encoding="UTF-8")
 
     file <- XML::xmlToList(file)
 

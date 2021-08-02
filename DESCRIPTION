@@ -11,5 +11,7 @@ LazyData: true
 Imports:
      XML,
      tibble,
-     stringr
+     stringr,
+     dplyr,
+     xml2
 RoxygenNote: 7.1.1

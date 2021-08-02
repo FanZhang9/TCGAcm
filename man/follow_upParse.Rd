@@ -2,7 +2,7 @@
 % Please edit documentation in R/follow_upParse.R
 \name{follow_upParse}
 \alias{follow_upParse}
-\title{Title Parse TCGA clinical follow up data from}
+\title{Parse TCGA clinical follow up data}
 \usage{
 follow_upParse(filenames, dir = ".", simplify = TRUE)
 }
@@ -14,7 +14,7 @@ follow_upParse(filenames, dir = ".", simplify = TRUE)
 \item{simplify}{should the output be simplified}
 }
 \description{
-Title Parse TCGA clinical follow up data from
+Parse TCGA clinical follow up data
 }
 \author{
 Fan Zhang <fanzhang95@outlook.com>
